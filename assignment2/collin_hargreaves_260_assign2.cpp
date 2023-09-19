@@ -123,9 +123,56 @@ string dec_to_bin(int n)
 
 int hex_to_dec(string s) 
 {
-	// IMPLEMENT THIS FUNCTION
-	// IMPLEMENT THIS FUNCTION
-	// IMPLEMENT THIS FUNCTION
+
+  int hexArr[] = {10, 11, 12, 13, 14, 15};
+  // take in string of digits
+  // loop through each digit
+  // return a total value
+  // setting n equal to length - 1 allows us to increment to 0 without reversing the string
+  
+  // loop through string, if char is 1, perform calculation and decrement 2^n if not only decrement 2^n
+  int total = 0;
+
+  // int to hold the value of the letter
+  int value = 0;
+  int n = s.length() - 1;
+  
+  // create a switch case in the loop to identify each value corresponding to a letter
+  // if not a letter store, its  the value presented
+  for (int i = 0; i < s.length(); i++) {
+    switch(s[i]) {
+      case 'A':
+        value = hexArr[0];
+        break;
+      case 'B':
+        value = hexArr[1];
+        break;
+      case 'C':
+        value = hexArr[2];
+        break;
+      case 'D':
+        value = hexArr[3];
+        break;
+      case 'E':
+        value = hexArr[4];
+        break;
+      case 'F':
+        value = hexArr[5];
+        break;
+      default:
+        value = s[i] - '0';
+        break;
+    }
+    
+    // apply formula dec = s[i].value * power(base, length - 1)
+    total = total + (value * pow(16, n));
+    n = n - 1;
+
+  }
+
+
+  return total;
+  
 }	
 
 
@@ -133,10 +180,86 @@ int hex_to_dec(string s)
 
 string dec_to_hex(int n)  
 {
-	// IMPLEMENT THIS FUNCTION
-	// IMPLEMENT THIS FUNCTION
-	// IMPLEMENT THIS FUNCTION
-}
+  
 
+
+  int remainder = 0;
+  string charRemainder;
+  string hexadecimalStr;
+
+  char hexArr[] = {'A', 'B', 'C', 'D', 'E', 'F'};
+
+  // while the number divided by hex base is not equal to a floor of 0
+  // keep diving number by base n (16)
+  // switch statement to check if values are to be converted to the letter equivalent
+  while (floor(n / 16) != 0) {
+    remainder = n % 16;
+    n = n / 16;
+
+    switch(remainder) {
+      case 10:
+        hexadecimalStr = hexadecimalStr + hexArr[0];
+        break;
+      case 11:
+        hexadecimalStr = hexadecimalStr + hexArr[1];
+        break;
+      case 12:
+        hexadecimalStr = hexadecimalStr + hexArr[2];
+        break;
+      case 13:
+        hexadecimalStr = hexadecimalStr + hexArr[3];
+        break;
+      case 14:
+        hexadecimalStr = hexadecimalStr + hexArr[4];
+        break;
+      case 15:
+        hexadecimalStr = hexadecimalStr + hexArr[5];
+        break;
+      default:
+        charRemainder = to_string(remainder);
+        hexadecimalStr = hexadecimalStr + charRemainder;
+        break;
+    }
+
+  }
+
+  // n now is less than 16, and will have one final value to obtain
+
+  remainder = n % 16;
+  switch(remainder) {
+    case 10:
+      hexadecimalStr = hexadecimalStr + hexArr[0];
+      break;
+    case 11:
+      hexadecimalStr = hexadecimalStr + hexArr[1];
+      break;
+    case 12:
+      hexadecimalStr = hexadecimalStr + hexArr[2];
+      break;
+    case 13:
+      hexadecimalStr = hexadecimalStr + hexArr[3];
+      break;
+    case 14:
+      hexadecimalStr = hexadecimalStr + hexArr[4];
+      break;
+    case 15:
+      hexadecimalStr = hexadecimalStr + hexArr[5];
+      break;
+    default:
+      charRemainder = to_string(remainder);
+      hexadecimalStr = hexadecimalStr + charRemainder;
+      break;
+  }
+
+
+  string reversedStr;
+
+  // need to reverse the string now
+  for (int i = hexadecimalStr.length() - 1; i >= 0; i--) {
+    reversedStr = reversedStr + hexadecimalStr[i];
+  }
+
+  return reversedStr;
+}
 
 

@@ -1,0 +1,26 @@
+hexidecimal numbers function
+data storage types
+converting hexadecimal to decimal
+being applied to any base
+amount of bits for unsigned decimal
+two compliments representation
+a trick for binary subtraction
+
+
+#2
+telling difference between positive and negative binary numb
+convert -10 in binary to -10 in decimal
+converting the reverse -24 to -24 in binary
+signed decimal to hex
+binary subtraction
+simpler method for subtraction
+how characters are represented
+
+#3
+data representation as decimal hex binary interpretation
+what a binary int is
+what an ASCII digit string is
+boolean operators
+how to form boolean expressions
+how AND operates at the bit level
+unpacked and packed BCD
